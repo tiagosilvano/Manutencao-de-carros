@@ -1,0 +1,44 @@
+<br>
+<h2>{{vm.titulo}}</h2>
+<form name="formCarro" novalidate>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label>Placa</label>
+            <input ng-model="vm.carro.placa" type="text" class="form-control"
+             maxlength="8" required  name="mascara" 
+             ng-pattern="/^[A-Z]{3}\-\d{4}$/" ng-class="{false: 'is-invalid', true: 'is-valid'}[formCarro.mascara.$valid]">
+            <div class="invalid-feedback ">
+                Por favor, informe uma placa válida Ex. ABCD-1234
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectMarca">Marca</label>
+            <select required class="form-control" id="selectMarca"  ng-model="vm.carro.marca" >            
+                <option ng-repeat="marca in vm.marcasList" value="{{marca}}">{{marca}}</option>
+            </select>
+        </div>
+    </div>    
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label>Modelo</label>
+            <input ng-model="vm.carro.modelo" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-2">
+                <label for= "selectCombustivel">Combustível</label>
+                <select required class="form-control" id="selectCombustivel"  ng-model="vm.carro.combustivel" >            
+                    <option ng-repeat="combustivel in vm.combustivelList" value="{{combustivel}}">{{combustivel}}</option>
+                </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label>Ano/Modelo</label>
+            <input ng-model="vm.carro.ano"  type="text" class="form-control" required   name="ano" ng-pattern="/[0-9]{4}\/\d{4}$/"  ng-class="{false: 'is-invalid', true: 'is-valid'}[formCarro.ano.$valid]"  maxlength="9" >
+            <div class="invalid-feedback ">
+                Por favor, informe o Ano/Modelo com o formato 2019/2019.
+              </div>
+        </div>
+    </div>
+    
+    
+    <button ui-sref="carroList" type="button" class="btn"><i class="fas fa-chevron-left"></i> Voltar</button>
+    <button ng-disabled="!formCarro.$valid" ng-click="vm.save()" type="button" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
+</form>

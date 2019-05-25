@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">Manutenção</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a ui-sref="manutencaoNovo" class="btn btn-sm btn-outline-success">
+            <span class="fas fa-plus-square"></span>
+            Nova manutenção
+        </a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>kilometragem</th>
+                <th>Data de manutenção</th>
+                <th>Tipo de Serviço</th>
+                <th>Valor do serviço</th>
+                <th>Observação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="manutencao in vm.manutencao">
+                <td>{{manutencao.placa}}</td>
+                <td>{{manutencao.kilometragem}}</td>
+                <td>{{manutencao.dtManutencao}}</td>
+                <td>{{manutencao.tipoManutencao}}</td>
+                <td>{{manutencao.vlServico}}</td>
+                <td>{{manutencao.obs}}</td>
+                <td class="text-right">
+                    <a ui-sref="manutencaoEditar({id:manutencao._id})"><span class="fas fa-edit"></span></a>
+                    <a href="#" ng-click="vm.excluir(manutencao._id)"><span class="fas fa-trash-alt"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
