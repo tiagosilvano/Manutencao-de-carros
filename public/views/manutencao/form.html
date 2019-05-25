@@ -5,15 +5,13 @@
                         <label for="inputcod">Código</label>
                         <input ng-model="vm.manutencao.codigo" type="text" class="form-control" id="inputcod" >
                 </div>
-        </div>
-    <div class="form-row">
-        <div class="form-group col-md-2">
-            <label for="inputcarro">Selecione o carro</label>
-            <input type="text" ng-keyup="vm.buscaVeiculos(vm.manutencao.placa)" ng-model="vm.manutencao.placa" class="form-control" id="inputcarro" placeholder="Placa" required>
-            <ul class="list-group" style="z-index:1006; position: absolute; width: 95%" ng-model="vm.hideList" ng-hide="vm.hideList">
-                <li class="list-group-item" ng-repeat="veiculo in vm.veiculosFiltrados" ng-click="vm.setVeiculoSelecionado(veiculo)" >{{veiculo.placa}}</li>
-            </ul>
-        </div>
+                <div class="form-group col-md-4">
+                        <label for="inputcarro">Selecione o carro</label>
+                        <input type="text" ng-keyup="vm.buscaVeiculos(vm.manutencao.placa)" ng-model="vm.manutencao.placa" class="form-control" id="inputcarro" placeholder="Informe os três primeiros dígitos da placa" required>
+                        <ul class="list-group" style="z-index:1006; position: absolute; width: 95%" ng-model="vm.hideList" ng-hide="vm.hideList">
+                            <li class="list-group-item" ng-repeat="veiculo in vm.veiculosFiltrados" ng-click="vm.setVeiculoSelecionado(veiculo)" >{{veiculo.placa}}</li>
+                        </ul>
+                </div> 
         <div class="form-group col-md-2">
                 <label for="inputkm">Kilometragem</label>
                 <input ng-model="vm.manutencao.kilometragem" type="text" class="form-control" id="inputkm" >
@@ -28,18 +26,16 @@
                     <option ng-repeat="tipoServico in vm.tipoServicoList" value="{{tipoServico}}">{{tipoServico}}</option>
                 </select>
         </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
                 <label for="inputVlservico">Valor do Serviço</label>
                 <input  ng-model="vm.manutencao.vlServico" type="text" class="form-control" id="inputVlservico">
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-8">
+        
+        <div class="form-group col-md-6">
                 <label for="inputObs">Observação</label>
                 <input ng-model="vm.manutencao.obs" type="text" class="form-control" id="inputObs">
-            </div>
-        </div>
-     
+            </div> 
+        </div>    
         <button ui-sref="manutencaoList" type="button" class="btn"><i class="fas fa-chevron-left"></i> Voltar</button>
         <button ng-disabled="!formManutencao.$valid" ng-click="vm.save()" type="button" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
 </form>

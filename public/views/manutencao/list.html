@@ -12,6 +12,7 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
+                <th>Código</th>
                 <th>Placa</th>
                 <th>kilometragem</th>
                 <th>Data de manutenção</th>
@@ -22,6 +23,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="manutencao in vm.manutencao">
+                <td>{{manutencao.codigo}}</td>
                 <td>{{manutencao.placa}}</td>
                 <td>{{manutencao.kilometragem}}</td>
                 <td>{{manutencao.dtManutencao | date: 'dd/MM/yyyy'}}</td>
