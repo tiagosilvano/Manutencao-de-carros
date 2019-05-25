@@ -6,6 +6,7 @@ const _model = new Schema({
         type:String,
         required: true
     },
+    placa: String,
     kilometragem: String,
     dtManutencao: String,
     tipoManutencao: String,

@@ -1,5 +1,11 @@
 <h2>{{vm.titulo}}</h2>
 <form  name="formManutencao" novalidate>
+        <div class="form-row">
+                <div class="form-group col-md-2">
+                        <label for="inputcod">Código</label>
+                        <input ng-model="vm.manutencao.codigo" type="text" class="form-control" id="inputcod" >
+                </div>
+        </div>
     <div class="form-row">
         <div class="form-group col-md-2">
             <label for="inputcarro">Selecione o carro</label>
@@ -10,11 +16,11 @@
         </div>
         <div class="form-group col-md-2">
                 <label for="inputkm">Kilometragem</label>
-                <input ng-model="vm.manutencao.kilometragem" type="number" class="form-control" id="inputkm" >
+                <input ng-model="vm.manutencao.kilometragem" type="text" class="form-control" id="inputkm" >
         </div>
         <div class="form-group col-md-2">
                 <label for="inputData">Data manutenção</label>
-                <input  ng-model="vm.manutencao.dtManutencao" type="text" class="form-control" id="inputData" placeholder="Data">
+                <input  ng-model="vm.manutencao.dtManutencao" type="date" class="form-control" id="inputData" placeholder="Data">
         </div>        
         <div class="form-group col-md-4">
                 <label for= "selectTipoServico">Tipo de Serviço</label>
@@ -33,9 +39,7 @@
                 <input ng-model="vm.manutencao.obs" type="text" class="form-control" id="inputObs">
             </div>
         </div>
-    
-
-   
+     
         <button ui-sref="manutencaoList" type="button" class="btn"><i class="fas fa-chevron-left"></i> Voltar</button>
         <button ng-disabled="!formManutencao.$valid" ng-click="vm.save()" type="button" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
 </form>

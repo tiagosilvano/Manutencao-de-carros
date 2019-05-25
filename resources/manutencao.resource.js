@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const manutencaoModel = mongoose.model('manutencao');
 
 module.exports = function (app) {
-    app.get('/manutencao', function (req, resp) {
+    app.get('/manutencoes', function (req, resp) {
         manutencaoModel.find()
             .then(
                 function (data) {
@@ -13,7 +13,7 @@ module.exports = function (app) {
                 }
             );
     });
-    app.post('/manutencao', function (req, resp) {
+    app.post('/manutencoes', function (req, resp) {
         manutencaoModel.create(req.body)
             .then(
                 function (data) {
@@ -24,7 +24,7 @@ module.exports = function (app) {
                 }
             );
     });
-    app.get('/manutencao/:id', function (req, resp) {
+    app.get('/manutencoes/:id', function (req, resp) {
         manutencaoModel.findById(req.params.id)
             .then(
                 function (data) {
@@ -39,7 +39,7 @@ module.exports = function (app) {
                 }
             );
     });
-    app.put('/manutencao/:id', function (req, resp) {
+    app.put('/manutencoes/:id', function (req, resp) {
         manutencaoModel.findOneAndUpdate({ '_id': req.params.id }, req.body)
             .then(
                 function (data) {
@@ -54,7 +54,7 @@ module.exports = function (app) {
                 }
             );
     });
-    app.delete('/manutencao/:id', function (req, resp) {
+    app.delete('/manutencoes/:id', function (req, resp) {
         manutencaoModel.deleteOne({ '_id': req.params.id })
             .then(
                 function () {

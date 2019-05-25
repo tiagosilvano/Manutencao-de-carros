@@ -4,7 +4,7 @@ angular.module('app')
 ManutencaoService.$inject = ['$http']
 
 function ManutencaoService ($http) {
-    var URL = '/carros';
+    var URL = '/manutencoes';
 
     var service = this;
 

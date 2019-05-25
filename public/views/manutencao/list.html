@@ -24,7 +24,7 @@
             <tr ng-repeat="manutencao in vm.manutencao">
                 <td>{{manutencao.placa}}</td>
                 <td>{{manutencao.kilometragem}}</td>
-                <td>{{manutencao.dtManutencao}}</td>
+                <td>{{manutencao.dtManutencao | date: 'dd/MM/yyyy'}}</td>
                 <td>{{manutencao.tipoManutencao}}</td>
                 <td>{{manutencao.vlServico}}</td>
                 <td>{{manutencao.obs}}</td>

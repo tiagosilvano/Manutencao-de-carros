@@ -1,13 +1,14 @@
 angular.module('app')
     .controller('ManutencaoFormController', ManutencaoFormController);
-ManutencaoFormController.$inject = ['$state','ManutencaoService' ,'CarroService','$stateParams']
+ManutencaoFormController.$inject = ['$state','$stateParams','ManutencaoService' ,'CarroService', 'UtilService' ]
 
-function ManutencaoFormController($state, ManutencaoService, CarroService,$stateParams) {
+function ManutencaoFormController($state,$stateParams,  ManutencaoService, CarroService, UtilService) {
     var vm = this;
     vm.manutencao = {};
     vm.titulo = 'Nova manutenção';
     vm.tipoServicoList = gettipoServico()
     vm.veiculosFiltrados = []
+    vm.manutencao.dtManutencao = UtilService.getDataAtual();
 
     if ($stateParams.id) {
         vm.titulo = 'Editando Manutenção';
@@ -17,7 +18,8 @@ function ManutencaoFormController($state, ManutencaoService, CarroService,$state
             });
     }
 
-    vm.save = function() {
+    vm.save = function() {  
+              
         if ($stateParams.id) {
             ManutencaoService
                 .update($stateParams.id, vm.manutencao)
@@ -36,7 +38,7 @@ function ManutencaoFormController($state, ManutencaoService, CarroService,$state
     vm.buscaVeiculos = function (placa) {
         vm.veiculoSelecionado = null
         if (placa) {
-            if (placa.length <= 3) {
+            if (placa.length <= 2) {
                 vm.hideList = true
             } else {
                 vm.hideList = false;

@@ -1,6 +1,6 @@
 angular.module('app')
     .controller('ManutencaoListController', ManutencaoListController);
-    CarroListController.$inject = ['ManutencaoService'];
+    ManutencaoListController.$inject = ['ManutencaoService'];
 
     function ManutencaoListController(ManutencaoService){
     var vm = this;

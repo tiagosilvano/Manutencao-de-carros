@@ -4,11 +4,11 @@
     <div class="form-row">
         <div class="form-group col-md-2">
             <label>Placa</label>
-            <input ng-model="vm.carro.placa" type="text" class="form-control"
+            <input ng-model="vm.carro.placa" type="text" class="form-control" ng-disabled="vm.titulo =='Editando Carro'" 
              maxlength="8" required  name="mascara" 
              ng-pattern="/^[A-Z]{3}\-\d{4}$/" ng-class="{false: 'is-invalid', true: 'is-valid'}[formCarro.mascara.$valid]">
             <div class="invalid-feedback ">
-                Por favor, informe uma placa válida Ex. ABCD-1234
+                Por favor, informe uma placa válida Ex. ABC-1234
             </div>
         </div>
         <div class="form-group">
